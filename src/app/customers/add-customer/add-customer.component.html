@@ -1,0 +1,59 @@
+<p-toast></p-toast>
+<h2>New Customer</h2>
+<form (ngSubmit)="onSubmit()" [formGroup]="customerForm">
+  <div class="form-group row">
+    <div class="col-md-4">
+      <label for="firstName">First Name</label>
+      <input type="text" formControlName="firstName" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && customerForm.firstName.errors }" /> -->
+      <!-- <div *ngIf="submitted && customerForm.firstName.errors" class="invalid-feedback">
+        <div *ngIf="customerForm.firstName.errors.required">First Name is required</div>
+      </div> -->
+    </div>
+    <div class="col-md-4">
+      <label for="lastName">Last Name</label>
+      <input type="text" formControlName="lastName" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && customerForm.lastName.errors }" /> -->
+      <!-- <div *ngIf="submitted && customerForm.lastName.errors" class="invalid-feedback">
+        <div *ngIf="customerForm.lastName.errors.required">Last Name is required</div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-4">
+      <label for="phone">Phone Number</label>
+      <input type="text" formControlName="phone" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && customerForm.phone.errors }" /> -->
+      <!-- <div *ngIf="submitted && customerForm.phone.errors" class="invalid-feedback">
+        <div *ngIf="customerForm.phone.errors.required">phone is required</div>
+      </div> -->
+    </div>
+    <div class="col-md-4">
+      <label for="email">Email Address</label>
+      <input type="text" formControlName="email" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && customerForm.email.errors }" /> -->
+      <!-- <div *ngIf="submitted && customerForm.email.errors" class="invalid-feedback">
+        <div *ngIf="customerForm.email.errors.required">email is required</div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-4">
+      <label for="address">Local Address</label>
+      <input type="text" formControlName="address" class="form-control" />
+         <!-- [ngClass]="{ 'is-invalid': submitted && customerForm.address.errors }" /> -->
+      <!-- <div *ngIf="submitted && customerForm.address.errors" class="invalid-feedback">
+        <div *ngIf="customerForm.address.errors.required">First Name is required</div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">{{saveOrUpdateBtn}}</button>
+    <img *ngIf="loading"
+      src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    <a [routerLink]="['/gas-customers']" class="btn btn-link">Cancel</a>
+  </div>
+</form>

@@ -1,0 +1,41 @@
+<p-toast></p-toast>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form  [formGroup]="billingForm">
+        <div class="row">
+          <div class="col-50">
+            <h3>GAS BILLING</h3>
+            <img src="/src/assets/gas.jpg" alt="Italian Trulli" style="height: 300px;width: 400px;">
+          </div>
+
+          <div class="col-50">
+            <h3>Details</h3>
+            <label for="cname">Customer</label>
+            <p-autoComplete placeholder="Select Customer" formControlName="customerObj"  [dropdown]="true" [suggestions]="filteredCustomers" (completeMethod)="filterCustomers($event)" field="firstName"></p-autoComplete>
+            <label for="capacity">Capacity of cylender</label>
+            <input type="number" id="capacity" name="capacity" formControlName="capacity"  placeholder="Capacity">
+            <label for="cost">Cost per litre</label>
+            <input type="number" id="cost" name="cost" placeholder="Cost" formControlName="cost">
+            <label for="quantity">Cylender quantity</label>
+            <input type="number" id="quantity" placeholder="Cylender quantity" formControlName="quantity">
+          </div>
+
+        </div>
+        <input type="button" (click)="addToCart()" [value]="submitBtnTxt" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>{{items.length}}</b></span></h4>
+      <div *ngFor="let item of items">
+        <p><a (click)="editItem(item)">{{item.name}}</a> <span class="price">{{item.value}}</span></p>
+      </div>
+      <p><a>GST({{12}})</a> <span class="price">{{gstValue}}</span></p>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>{{totalValue}}</b></span></p>
+    </div>
+    <input type="button" (click)="submit()" [value]="'Submit'" class="btn btn-primary">
+  </div>
+</div>
